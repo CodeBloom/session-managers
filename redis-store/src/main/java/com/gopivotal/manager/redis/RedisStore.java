@@ -50,8 +50,6 @@ import static java.util.logging.Level.SEVERE;
  */
 public final class RedisStore extends AbstractLifecycle implements RedisStoreManagement, Store {
 
-    private static final String INFO = "RedisStore/1.0";
-
     private static final String SESSIONS_KEY = "sessions";
 
     private final JmxSupport jmxSupport;
@@ -233,12 +231,7 @@ public final class RedisStore extends AbstractLifecycle implements RedisStoreMan
 
         });
     }
-
-    @Override
-    public String getInfo() {
-        return INFO;
-    }
-
+    
     @Override
     public Manager getManager() {
         return this.lockTemplate.withReadLock(new LockTemplate.LockedOperation<Manager>() {
